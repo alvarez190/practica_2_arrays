@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <title>Ejercicios de Arrays</title>
+  </head>
+  <body>
+    <script>
+
+      var arrayNumber = [];
+
+      for (var i = 0; i < 50; i++) {
+        let number = " ";
+        for (var j = 0; j < 3; j++) {
+          let random = Math.floor(Math.random() * 59 + 1);
+          number += random.toString();
+        }
+        arrayNumber[i] = number;
+      }
+
+      for (var i = 0; i < arrayNumber.length; i++) {
+        if (arrayNumber[i].length > 6) {
+          console.log(i, "-> ", arrayNumber[i], "ok")
+        } else {
+          console.log(i, "-> ", arrayNumber[i], "error");
+        }
+      }
+
+      function generateArrayNumber(size) {
+        let number = " ";
+        var arrayNumber = [];
+
+        for (var i = 0; i < size; i++) {
+          for (var j = 0; j < 3; j++) {
+            let random = Math.floor(Math.random() * 59 + 1);
+            number += random.toString();
+          }
+          arrayNumber[i] = number;
+        }
+
+        // De aqui he hecho que en los 50 numeros no exista repetidos entre ellos.
+
+        // Comprobar numeros
+
+        let positionNumber = [];
+        let countErrors = 0;
+
+        for (var i = 0; i < arrayNumber.length; i++) {
+          if(arrayNumber[i].length < 6) {
+            positionNumber[countErrors] = i;
+            countErrors++;
+          }
+        }
+
+        // Arreglar numeros erroneos
+
+        let random;
+        let aux;
+
+        for (var i = 0; i < positionNumber.length; i++) {
+          if(positionNumber[i].length = 3){
+            random = Math.floor(Math.random()*10);
+          }else if (positionNumber[i].length = 4) {
+            for (let i = 0; i < 2; i++) {
+              random = Math.floor(Math.random()*10);
+              aux = positionNumber[i] + random.toString();
+            }
+          }else if (positionNumber[i].length = 5) {
+            for (let i = 0; i < 3; i++) {
+              random = Math.floor(Math.random()*10);
+              aux = positionNumber[i] + random.toString();
+            }
+          }else {
+            console.log("ok");
+          }
+        }
+      }
+
+      function showArray(arrayNumber) {
+        for (var i = 0; i < array.length; i++) {
+          console.log((i+1) , "-> " , array[i]);
+        }
+      }
+
+    </script>
+  </body>
+</html>
